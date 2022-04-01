@@ -2,6 +2,7 @@ import type { AppProps /*, AppContext */ } from "next/app";
 import Head from "next/head";
 import React from "react";
 import "../styles/globals.css";
+import 'github-markdown-css/github-markdown.css';
 
 const SafeAppContents = ({ Component, pageProps }: AppProps) => {
   const [mounted, setMounted] = React.useState(false);

@@ -10,7 +10,7 @@ export default function Web() {
   }, [])
 
   return (
-    <div className="flex flex-row h-full bg-background">
+    <div className="flex flex-row h-screen bg-background">
       <Editor onChange={handleDocChange} initialDoc={doc} />
       <Preview doc={doc}/>
     </div>
