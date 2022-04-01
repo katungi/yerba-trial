@@ -1,9 +1,16 @@
-import Head from "next/head";
+import { useState, useCallback } from "react";
+import Editor from "../components/Editor";
 
 export default function Web() {
+  const [doc, setDoc] = useState<string>('# Hello, World! now\n')
+
+  const handleDocChange = useCallback(newDoc => {
+    setDoc(newDoc)
+  }, [])
+
   return (
     <div className="flex flex-row h-full bg-background">
-      <h2>Hello From Yerba</h2>
+      <Editor onChange={handleDocChange} initialDoc={doc} />
     </div>
   );
 }
