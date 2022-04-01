@@ -20,9 +20,15 @@
     "@codemirror/matchbrackets": "^0.19.4",
     "@codemirror/state": "^0.19.9",
     "@codemirror/theme-one-dark": "^0.19.1",
+    "github-markdown-css": "^5.1.0",
+    "hast-util-sanitize": "^4.0.0",
     "next": "12.0.8",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "remark-gfm": "^3.0.1",
+    "remark-parse": "^10.0.1",
+    "remark-react": "^9.0.1",
+    "unified": "^10.1.2"
   },
   "devDependencies": {
     "@types/node": "^17.0.12",
