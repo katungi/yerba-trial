@@ -1,5 +1,5 @@
-import React, {useCallback, useEffect} from 'react'
-import useCodeMirror from '';
+import React, { useCallback, useEffect } from 'react'
+import useCodeMirror from '../hooks/use-codemirror';
 
 interface Props {
   initialDoc: string,
@@ -7,7 +7,7 @@ interface Props {
 }
 
 const Editor: React.FC<Props> = (props) => {
-  const {onChange, initialDoc} = props;
+  const { onChange, initialDoc } = props;
   const handleChange = useCallback(
     state => onChange(state.doc.toString()),
     [onChange],
@@ -17,6 +17,13 @@ const Editor: React.FC<Props> = (props) => {
     initialDoc: initialDoc,
     onChange: handleChange,
   })
+
+  useEffect(() => {
+    if (editorView) {
+      // Do nothing for now
+    }
+  }, [editorView])
+  return <div className='editor-wrapper' ref={refContainer} />
 }
 
 export default Editor
