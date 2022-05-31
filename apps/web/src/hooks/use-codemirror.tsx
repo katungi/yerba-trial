@@ -1,23 +1,20 @@
-import { useEffect, useState, useRef } from 'react';
-import { EditorState } from '@codemirror/state';
-import { EditorView } from '@codemirror/view';
-import { keymap, highlightActiveLine } from '@codemirror/view';
-import { defaultKeymap } from '@codemirror/commands';
-import { history, historyKeymap } from '@codemirror/history';
-import { indentOnInput } from '@codemirror/language';
-import { bracketMatching } from '@codemirror/matchbrackets';
-import { lineNumbers, highlightActiveLineGutter } from '@codemirror/gutter';
-import { defaultHighlightStyle, HighlightStyle, tags } from '@codemirror/highlight';
-import { markdown, markdownLanguage } from '@codemirror/lang-markdown';
-import { languages } from '@codemirror/language-data';
-import { oneDark } from '@codemirror/theme-one-dark';
-import { javascript } from '@codemirror/lang-javascript';
-import type React from 'react';
+import { useEffect, useState, useRef } from 'react'
+import { EditorState } from '@codemirror/state'
+import { EditorView, keymap, highlightActiveLine } from '@codemirror/view'
+import { defaultKeymap } from '@codemirror/commands'
+import { history, historyKeymap } from '@codemirror/history'
+import { indentOnInput } from '@codemirror/language'
+import { bracketMatching } from '@codemirror/matchbrackets'
+import { lineNumbers, highlightActiveLineGutter } from '@codemirror/gutter'
+import { defaultHighlightStyle, HighlightStyle, tags } from '@codemirror/highlight'
+import { markdown, markdownLanguage } from '@codemirror/lang-markdown'
+import { languages } from '@codemirror/language-data'
+import { oneDark } from '@codemirror/theme-one-dark'
 
 export const transparentTheme = EditorView.theme({
   '&': {
-    backgroundColor: '#282c34 !important',
-    height: '100%',
+    backgroundColor: 'transparent !important',
+    height: '100%'
   }
 })
 
@@ -36,20 +33,31 @@ const syntaxHighlighting = HighlightStyle.define([
     tag: tags.heading3,
     fontSize: '1.2em',
     fontWeight: 'bold'
+  },
+  {
+    tag: tags.list,
+    fontSize: '1.2em',
+    fontWeight: 'bold'
   }
 ])
+
+import type React from 'react'
+
 interface Props {
   initialDoc: string,
   onChange?: (state: EditorState) => void
 }
 
-const useCodeMirror = <T extends Element>(props: Props): [React.MutableRefObject<T | null>, EditorView?] => {
+const useCodeMirror = <T extends Element>(
+  props: Props
+): [React.MutableRefObject<T | null>, EditorView?] => {
   const refContainer = useRef<T>(null)
-  const [editorView, setEditorView] = useState<EditorView>();
+  const [editorView, setEditorView] = useState<EditorView>()
   const { onChange } = props
 
   useEffect(() => {
     if (!refContainer.current) return
+
     const startState = EditorState.create({
       doc: props.initialDoc,
       extensions: [
@@ -64,7 +72,8 @@ const useCodeMirror = <T extends Element>(props: Props): [React.MutableRefObject
         markdown({
           base: markdownLanguage,
           codeLanguages: languages,
-          addKeymap: true
+          addKeymap: true,
+          defaultCodeLanguage: markdownLanguage
         }),
         oneDark,
         transparentTheme,
@@ -80,10 +89,11 @@ const useCodeMirror = <T extends Element>(props: Props): [React.MutableRefObject
 
     const view = new EditorView({
       state: startState,
-      parent: refContainer.current,
+      parent: refContainer.current
     })
     setEditorView(view)
   }, [refContainer])
+
   return [refContainer, editorView]
 }
 

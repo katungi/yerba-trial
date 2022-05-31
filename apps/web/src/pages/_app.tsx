@@ -32,7 +32,7 @@ function AppWrapper(props: AppProps) {
   return (
     <>
       <Head>
-        <title>Yerba</title>
+        <title>Nota</title>
       </Head>
       <SafeAppContents {...props} />
     </>

@@ -1,3 +1,4 @@
+import React from "react";
 import { useState, useCallback } from "react";
 import Editor from "../components/Editor";
 import Preview from "../components/Preview";
@@ -11,8 +12,9 @@ export default function Web() {
 
   return (
     <div className="flex flex-row h-screen bg-background">
+      {/* <Sidebar/> */}
       <Editor onChange={handleDocChange} initialDoc={doc} />
-      <Preview doc={doc}/>
+      <Preview doc={doc} />
     </div>
   );
 }
