@@ -3,6 +3,7 @@ import Head from "next/head";
 import React from "react";
 import "../styles/globals.css";
 import 'github-markdown-css/github-markdown.css';
+import { ChakraProvider } from "@chakra-ui/react";
 
 const SafeAppContents = ({ Component, pageProps }: AppProps) => {
   const [mounted, setMounted] = React.useState(false);
@@ -25,7 +26,11 @@ const SafeAppContents = ({ Component, pageProps }: AppProps) => {
   }
 
   // Only render if top two conditions pass
-  return <Component {...pageProps} />;
+  return (
+    <ChakraProvider>
+      <Component {...pageProps} />
+    </ChakraProvider>
+  );
 };
 
 function AppWrapper(props: AppProps) {

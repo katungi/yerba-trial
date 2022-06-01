@@ -20,6 +20,7 @@
     "@codemirror/matchbrackets": "^0.19.4",
     "@codemirror/state": "^0.19.9",
     "@codemirror/theme-one-dark": "^0.19.1",
+    "@prisma/client": "^3.14.0",
     "github-markdown-css": "^5.1.0",
     "hast-util-sanitize": "^4.0.0",
     "next": "12.0.8",
@@ -38,6 +39,7 @@
     "eslint": "7.32.0",
     "next-transpile-modules": "9.0.0",
     "postcss": "^8.4.6",
+    "prisma": "^3.14.0",
     "tailwindcss": "^3.0.18",
     "tsconfig": "*",
     "typescript": "^4.5.3"
