@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useCallback } from "react";
 import Editor from "../components/Editor";
 import Preview from "../components/Preview";
+import Sidebar from "../components/Sidebar";
 
 export default function Web() {
   const [doc, setDoc] = useState<string>('# Hello, World! now\n')
