@@ -24,10 +24,6 @@
   },
   "packageManager": "npm@7.5.3",
   "dependencies": {
-    "@chakra-ui/react": "^2.1.2",
-    "@emotion/react": "^11.9.0",
-    "@emotion/styled": "^11.8.1",
-    "@prisma/client": "^3.14.0",
-    "framer-motion": "^6.3.6"
+    "@prisma/client": "^3.14.0"
   }
 }

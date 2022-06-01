@@ -9,7 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@chakra-ui/react": "^2.1.2",
     "@codemirror/commands": "^0.19.8",
     "@codemirror/gutter": "^0.19.9",
     "@codemirror/highlight": "^0.19.8",
